@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <title>
+            Login page
+        </title>
+        <link rel="stylesheet" href="page.css">
+        <link rel="stylesheet" href="{% static 'login_css/page.css' %}" type="text/css" >
+    </head>
+    
+    <body>
+        
+        <div class ="Img">
+             <img src={"%static "login_css/0.jpg"%} alt="logo">
+        </div>
+        
+        <div class ="Navbar">
+            <a class= "log" href="webpage.html"> Home</a>
+            <a href="contact.html"> Contact</a>
+            <a href="about.html"> About us</a> 
+        </div>
+        
+       <div id="Loginbox">
+           
+            <div class="left">
+                <h1>Log In</h1>
+                <input type="text" name="Email" placeholder="E-mail" >   
+                <input type="password" name="password" placeholder="Enter Your Password" />  
+                <input type="text" name="promocode" placeholder="Promocode" /> 
+                <input type="submit" name="signup_submit" value="Sign in" />
+            </div>
+            <div class="right">
+                <span class="loginwith">Sign in with social</span>
+                <button  onclick="window.location.href='https://www.facebook.com/';"
+                class="social-signin facebook"> Log in with facebook</button>
+                <button onclick="window.location.href='https://www.twitter.com/explore';"
+                 class="twitter"> Log in with twitter</button>
+                <button class="google"> Log in with Google</button>
+
+
+
+            </div>
+
+        </div>
+
+    </body>
+</html>
