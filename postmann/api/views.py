@@ -3,6 +3,63 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from .serializers import UserApiSerializer
 from django.shortcuts import get_object_or_404
+from django.http import HttpResponse
+from django.shortcuts import render
+import requests
+
+import json
+
+# Create your views here.
+
+def index(request):
+    return HttpResponse("Hello world")
+def index1(request):
+    return render(request, "login/FIRST_webpage.html")
+def index2(request):
+    return render(request, "Boot_app/home.html")
+def index3(request):
+    return render(request, "Boot_app/Assignment_page2.html")
+def index4(request):
+    return render(request, "Boot_app/aassignment3.html")
+
+# def submitUser(request):
+#     email = request.GET['email']
+#     password = request.GET['password']
+#     name = request.GET['name']
+#     print(email,password,name, "this is me")
+#
+#     url = "http://127.0.0.1:8000/api/login/"
+#
+#     payload = {"email":email, "password":password, "name": name}
+#     payload= json.dumps(payload)
+#     headers = {
+#         'Content-Type': 'application/json'
+#     }
+#
+#     response = requests.request("POST", url, headers=headers, data=payload)
+#     data= response.text
+#     return render(request, "Boot_app/temp.html", {'data':data})
+#
+def submitUser(request):
+    email = request.GET['email']
+    password = request.GET['password']
+    name = request.GET['name']
+    print(email,password,name, "this is me")
+
+    url = "http://127.0.0.1:8000/api/login/"
+
+    payload = {"email":email, "password":password, "name": name}
+    payload= json.dumps(payload)
+    headers = {
+        'Content-Type': 'application/json'
+    }
+
+    response = requests.request("GET", url, headers=headers, data=payload)
+    data= response.text
+    return render(request, "Boot_app/Assignment_page2.html", {'data':data})
+
+
+
 
 # Create your views here.
 from .models import UserAPI
@@ -29,7 +86,7 @@ class UserApiView(APIView):
         return Response({"Success":"User '{}' created successfully".format(save_data.name)})
 
 
-    def put (self, request, pk):
+    def put(self, request, pk):
         queryset=get_object_or_404(UserAPI.objects.all(),pk=pk)
         parsed_data= request.data
         serializers= UserApiSerializer(instance=queryset, data= parsed_data, partial=True)

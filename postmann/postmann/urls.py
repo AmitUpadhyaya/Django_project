@@ -15,8 +15,20 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from api import views
 
 urlpatterns = [
-    path('', admin.site.urls),
-    path('api/', include('api.urls'))
+    path('admin/', admin.site.urls),
+    path('api/', include('api.urls')),
+    path('', views.index2),
+    path('bootcamp1', views.index3),
+    path('bootcamp2', views.index4),
+    path('bootcamp3', views.index1),
+    path('submit/', views.submitUser, name="submitBtn")
+
 ]
+
+
+
+
+
