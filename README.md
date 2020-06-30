@@ -29,7 +29,7 @@ In this 'postmann' project, we made APIs for User Signin/signup in food Webpage.
 -> Runserver click on url.   
 -> Home page will open, click on 'login' in Navbar of this page.  
 -> In login page, Create an Account on clicking signup button.  
--> Enter your Credentials as asked. Follow the password creating rules and in Username enter email. 
+-> Enter your Credentials as asked. Follow the password creating rules and in Username enter email.     
 -> After account creation Go back to login page and try to signin with 
    same credentials used for signup.
 
