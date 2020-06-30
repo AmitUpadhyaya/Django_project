@@ -17,6 +17,8 @@ from django.contrib import admin
 from django.urls import path, include
 from api import views
 
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('api.urls')),
@@ -24,7 +26,9 @@ urlpatterns = [
     path('bootcamp1', views.index3),
     path('bootcamp2', views.index4),
     path('bootcamp3', views.index1),
-    path('submit/', views.submitUser, name="submitBtn")
+    path('submit/', views.submitUser, name="submitBtn"),
+    path('', include('signup_page.urls')),
+
 
 ]
 
